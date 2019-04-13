@@ -1,0 +1,32 @@
+JIRA NODE 1
+192.168.0.15
+mount 192.168.0.19:/opt/atlassian/shared-home /opt/atlassian/shared-home
+cd /opt/atlassian/jira_install
+> cd bin
+> ./stop-jira.sh
+>./start-jira.sh
+
+
+JIRA NODE 2
+192.168.0.18
+mount 192.168.0.19:/opt/atlassian/shared-home /opt/atlassian/shared-home
+mount 192.168.0.19:/opt/atlassian/shared-home /opt/atlassian/shared-home
+cd /opt/atlassian/jira_install
+> cd bin
+> ./stop-jira.sh
+>./start-jira.sh
+
+
+(JIRA PROXY)
+
+192.168.0.17
+ service firewalld stop
+ systemctl start haproxy
+ systemctl stop haproxy
+ systemctl status haproxy
+
+JIRA DATACENTER SHARE
+192.168.0.19
+
+JIRA - DB:
+192.168.0.20
